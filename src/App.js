@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 import Blog from './components/Blog';
 
 function App() {
-  const mySkills = ["HTML", "CSS", "JavaScript", "React", "Git"];
+  const mySkills = ["HTML5", "CSS3", "JavaScript", "React","TypeScript" ,"Git"];
 
   const projects = [
     {

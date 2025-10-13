@@ -1,21 +1,30 @@
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import './Navbar.css';
 
-function Navbar() {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav>
-      <h2>My Portfolio</h2>
-      <ul>
-        <li><Link to="/">Home</Link></li>
+    <nav className="navbar">
+      <div className="logo">silent_debugger</div>
 
-        {/* simple anchors for in-page navigation */}
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <div className="menu-icon" onClick={toggleMenu}>
+        &#9776;
+      </div>
 
-        <li><Link to="/blog">Blog</Link></li>
+      <ul className={`nav-links ${isOpen ? 'show' : ''}`}>
+        <li><a href="#home" onClick={() => setIsOpen(false)}>Home</a></li>
+        <li><a href="#about" onClick={() => setIsOpen(false)}>About</a></li>
+        <li><a href="#skills" onClick={() => setIsOpen(false)}>Skills</a></li>
+        <li><a href="#projects" onClick={() => setIsOpen(false)}>Projects</a></li>
+        <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
       </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;
